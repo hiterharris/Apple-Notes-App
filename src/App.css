@@ -1,3 +1,40 @@
 .App {
   text-align: center;
 }
+
+.Nav {
+  display: flex;
+  justify-content: space-around;
+  padding: 2%;
+}
+
+.Nav div {
+  border: 1px solid grey;
+}
+
+.window-icons {
+  width: 10%
+}
+
+.note-icons {
+  width: 50%
+}
+
+.search-bar {
+  width: 40%
+}
+
+.app-container {
+  display: flex;
+  justify-content: space-around;
+}
+
+.List {
+  width: 30%;
+  border: 1px solid grey;
+}
+
+.Note {
+  width: 70%;
+  border: 1px solid grey;
+}
