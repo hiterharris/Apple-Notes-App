@@ -2,12 +2,10 @@ import React, { Component } from 'react';
 import '../App.css';
 
 export default class Note extends Component {
-
-
   constructor(props) {
     super(props);
     this.state={
-      value: '',
+      value: props.notes[0].text,
       isInEditMode: false,
     }
   }
@@ -20,7 +18,7 @@ export default class Note extends Component {
 
   renderEditView = () => {
     return (
-      <div>
+      <div class="note">
         <textarea
           type="text"
           defaultValue={this.state.value}

@@ -4,15 +4,26 @@ import '../App.css';
 export default class List extends Component {
   constructor(props) {
     super(props);
-    console.log(props);
   }
 
   render() {
-    const note = this.props.note;
-    return (
-      <div className="list-item">
+
+    const noteItem = this.props.notes.map( (note) => {
+      return (
+        <div className="list-item">
           <h1>{note.title}</h1>
           <p>{note.date}</p>
+        </div>
+
+      );
+    });
+
+    return (
+      <div className="list">
+        <div>
+          {noteItem}
+        </div>
+
       </div>
     );
   }
