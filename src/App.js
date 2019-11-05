@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
-import List from './components/List';
+import ListItem from './components/ListItem';
 import Note from './components/Note';
 import Nav from './components/Nav';
 
@@ -10,7 +10,7 @@ export default class App extends Component {
       <div className="App">
         <Nav />
         <div className="app-container">
-          <List />
+          <ListItem />
           <Note />
         </div>
       </div>
