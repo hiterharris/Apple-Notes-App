@@ -5,7 +5,7 @@ export default class Note extends Component {
   constructor(props) {
     super(props);
     this.state={
-      value: props.notes[0].text,
+      value: props.text,
       isInEditMode: false,
     }
   }
