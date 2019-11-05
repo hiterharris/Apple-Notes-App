@@ -2,14 +2,47 @@ import React, { Component } from 'react';
 import '../App.css';
 
 export default class Note extends Component {
-  render() {
+
+
+  constructor(props) {
+    super(props);
+    this.state={
+      value: '',
+      isInEditMode: false,
+    }
+  }
+
+  changedEditMode = () => {
+    this.setState({
+      isInEditMode: !this.state.isInEditMode,
+    });
+  }
+
+  renderEditView = () => {
     return (
-      <div className="Note">
-        <h1>Note</h1>
-            <div className="Note-container">
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-            </div>
+      <div>
+        <textarea
+          type="text"
+          defaultValue={this.state.value}
+          ref="textInput"
+        />
       </div>
     );
   }
+
+  renderDefaultView = () => {
+    return (
+      <div onDoubleClick={this.changedEditMode()}>
+        {this.state.value}
+      </div>
+    );
+  }
+
+  render() {
+    return this.state.isInEditMode ? this.renderEditView() : this.renderDefaultView();
+  }
 }
+
+      // <div className="note">
+      //   {this.state.value}
+      // </div>
