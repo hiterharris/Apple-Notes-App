@@ -40,7 +40,3 @@ export default class Note extends Component {
     return this.state.isInEditMode ? this.renderEditView() : this.renderDefaultView();
   }
 }
-
-      // <div className="note">
-      //   {this.state.value}
-      // </div>

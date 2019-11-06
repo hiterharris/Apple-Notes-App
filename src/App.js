@@ -3,7 +3,7 @@ import './App.css';
 import List from './components/List';
 import Note from './components/Note';
 import Nav from './components/Nav';
-import notes from './assets/notes.json';
+import notes from './assets/data/notes.json';
 
 export default class App extends Component {
   constructor(props) {
