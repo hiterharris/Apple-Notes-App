@@ -5,7 +5,7 @@ export default class Note extends Component {
   constructor(props) {
     super(props);
     this.state={
-      value: props.text,
+      value: props,
       isInEditMode: false,
     }
   }
@@ -21,7 +21,7 @@ export default class Note extends Component {
       <div class="note">
         <textarea
           type="text"
-          defaultValue={this.state.value}
+          defaultValue={this.state.value.text}
           ref="textInput"
         />
       </div>
@@ -31,7 +31,7 @@ export default class Note extends Component {
   renderDefaultView = () => {
     return (
       <div onDoubleClick={this.changedEditMode()}>
-        {this.state.value}
+        {this.state.value.text}
       </div>
     );
   }
