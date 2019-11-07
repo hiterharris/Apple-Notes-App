@@ -1,13 +1,5 @@
 import React, { Component } from 'react';
-import '../App.css';
-import sidebar from '../assets/img/icons/sidebar-toggle.png';
-import view from '../assets/img/icons/view-toggle.png';
-import trash from '../assets/img/icons/trash.png';
-import note from '../assets/img/icons/note.png';
-import check from '../assets/img/icons/check.png';
-import lock from '../assets/img/icons/lock.png';
-import search from '../assets/img/icons/search.png';
-
+import '../App.scss';
 import traffic from '../assets/img/icons/traffic.png'
 
 export default class Nav extends Component {
@@ -15,15 +7,15 @@ export default class Nav extends Component {
     return (
       <div className="nav">
         <div className="window-icons">
-          <img src={traffic} />
+          <img src={traffic} alt="Window Icons" />
         </div>
         <div className="note-icons">
-          <img src={sidebar} />
-          <img src={view} />
-          <img src={trash} />
-          <img src={note} />
-          <img src={check} />
-          <img src={lock} />
+          <img src={require('../assets/img/icons/sidebar-toggle.png')} alt="Sidebar Toggle Icon" />
+          <img src={require('../assets/img/icons/view-toggle.png')} alt="Change View Icon" />
+          <img src={require('../assets/img/icons/trash.png')} alt="Trash Icon" />
+          <img src={require('../assets/img/icons/note.png')} alt="New Note Icon" />
+          <img src={require('../assets/img/icons/check.png')} alt="Checklist Item Icon" />
+          <img src={require('../assets/img/icons/lock.png')} alt="Lock Icon" />
         </div>
         <div className="search-bar">
           <input placeholder="Search" ></input>

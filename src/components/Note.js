@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import '../App.css';
+import '../App.scss';
 
 export default class Note extends Component {
   constructor(props) {
@@ -18,7 +18,7 @@ export default class Note extends Component {
 
   renderEditView = () => {
     return (
-      <div class="note">
+      <div className="note">
         <textarea
           type="text"
           defaultValue={this.state.value.text}

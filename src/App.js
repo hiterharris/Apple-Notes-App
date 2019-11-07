@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './App.css';
+import './App.scss';
 import List from './components/List';
 import Note from './components/Note';
 import Nav from './components/Nav';
@@ -9,7 +9,7 @@ export default class App extends Component {
   constructor(props) {
     super(props);
     this.state={
-      listItemClicked: false,
+      bgColor: "#FCFCF8",
     }
   }
 
@@ -19,20 +19,20 @@ export default class App extends Component {
           note.text
       );
     });
-    return this.state.listItemClicked ? <Note text={note[1]} /> : <Note text={note[0]} />
+    return this.state.listItemSelected ? <Note text={note[1]} /> : <Note text={note[0]} />
   }
 
   listItemClicked = () => {
     this.setState({
-      listItemClicked: !this.state.listItemClicked,
+      bgColor: "#FBDF8C",
     })
   }
   
   render() {
-    const noteItem = notes.map( (note) => {
+    const noteItem = notes.map( (note, i) => {
       return (
-        <div className="list-item">
-          <h1>{note.title}</h1>
+        <div className="list-item" key={i} style={{backgroundColor: this.state.bgColor}} onClick={this.listItemClicked}>
+          <h2>{note.title}</h2>
           <p>{note.date}</p>
         </div>
 
@@ -45,7 +45,7 @@ export default class App extends Component {
       <div className="app">
         <Nav />
         <div className="app-container">
-          <List noteItem={noteItem} listItemClicked={this.state.listItemClicked} />
+          <List noteItem={noteItem} />
           {this.renderListItem()}
         </div>
       </div>
