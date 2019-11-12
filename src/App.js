@@ -10,10 +10,17 @@ export default class App extends Component {
     super(props);
     this.state={
       bgColor: "#FCFCF8",
+      listItemSelected: false,
     }
   }
 
-  renderListItem = () => {
+  listItemSelected = () => {
+    this.setState({
+      listItemSelected: true,
+    })
+  }
+
+  renderNote = () => {
     const note = notes.map( (note) => {
       return (
           note.text
@@ -22,16 +29,10 @@ export default class App extends Component {
     return this.state.listItemSelected ? <Note text={note[1]} /> : <Note text={note[0]} />
   }
 
-  listItemClicked = () => {
-    this.setState({
-      bgColor: "#FBDF8C",
-    })
-  }
-  
   render() {
-    const noteItem = notes.map( (note, i) => {
+    const noteItem = notes.map( (note) => {
       return (
-        <div className="list-item" key={i} style={{backgroundColor: this.state.bgColor}} onClick={this.listItemClicked}>
+        <div className="list-item">
           <h2>{note.title}</h2>
           <p>{note.date}</p>
         </div>
@@ -40,13 +41,12 @@ export default class App extends Component {
     });
 
 
-
     return (
       <div className="app">
         <Nav />
         <div className="app-container">
           <List noteItem={noteItem} />
-          {this.renderListItem()}
+          {this.renderNote()}
         </div>
       </div>
     );

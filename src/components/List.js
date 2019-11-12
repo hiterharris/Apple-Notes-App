@@ -4,14 +4,19 @@ import '../App.scss';
 export default class List extends Component {
   constructor(props) {
     super(props);
-    console.log(props.listItemClicked);
   }
 
   render() {
     return (
       <div className="list">
-        <div>
+        {/* <div>
           {this.props.noteItem}
+        </div> */}
+        <div>
+          {this.props.noteItem[0]}
+        </div>
+        <div className="note-item">
+          {this.props.noteItem[1]}
         </div>
       </div>
     );
