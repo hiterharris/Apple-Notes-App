@@ -6,19 +6,12 @@ export default class Note extends Component {
     super(props);
     this.state={
       value: props,
-      isInEditMode: false,
     }
   }
 
-  changedEditMode = () => {
-    this.setState({
-      isInEditMode: !this.state.isInEditMode,
-    });
-  }
-
-  renderEditView = () => {
+  renderNoteText = () => {
     return (
-      <div className="note">
+      <div>
         <textarea
           type="text"
           defaultValue={this.state.value.text}
@@ -28,15 +21,7 @@ export default class Note extends Component {
     );
   }
 
-  renderDefaultView = () => {
-    return (
-      <div onDoubleClick={this.changedEditMode()}>
-        {this.state.value.text}
-      </div>
-    );
-  }
-
   render() {
-    return this.state.isInEditMode ? this.renderEditView() : this.renderDefaultView();
+    return this.renderNoteText();
   }
 }

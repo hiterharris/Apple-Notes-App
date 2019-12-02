@@ -59,6 +59,10 @@ body {
   width: 40%;
 }
 
+.list-item:nth-child(2) {
+  background-color: #FBDF8C;
+}
+
 .list-item h2, p {
   margin: 0;
   padding: 4%;
@@ -76,10 +80,6 @@ body {
   padding: 5%;
   line-height: 1.5;
   background: #F9F9F7;
-}
-
-.note-item {
-  background-color: #FBDF8C;
 }
 
 /*# sourceMappingURL=App.css.map */

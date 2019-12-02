@@ -8,17 +8,10 @@ export default class List extends Component {
 
   render() {
     return (
-      <div className="list">
-        {/* <div>
-          {this.props.noteItem}
-        </div> */}
-        <div>
-          {this.props.noteItem[0]}
+        <div className="list-item">
+          <h2>{this.props.note.title}</h2>
+          <p>{this.props.note.date}</p>
         </div>
-        <div className="note-item">
-          {this.props.noteItem[1]}
-        </div>
-      </div>
     );
   }
 }
