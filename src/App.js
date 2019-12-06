@@ -6,6 +6,12 @@ import Nav from './components/Nav';
 import notes from './assets/data/notes.json';
 
 export default class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      clicked: false,
+    }
+  }
 
   renderNote = () => {
     const note = notes.map( (note) => {
@@ -13,17 +19,18 @@ export default class App extends Component {
           note.text
       );
     });
-    return <Note text={note[0]} />
+    return <Note text={note[1]} />
   }
 
   renderList = () => {
     const noteItem = notes.map( (note) => {
       return (
-        <List note={note} />
+        <List note={note} clicked={this.state.clicked} />
       );
     });
     return noteItem;
   }
+  
 
   render() {
     return (
