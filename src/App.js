@@ -13,19 +13,38 @@ export default class App extends Component {
     }
   }
 
+  handleClick = () => {
+    // UPDATING STATE ONCLICK
+    this.setState({
+      clicked: !this.clicked,
+    });
+    // RETURNING CLICKED TEXT
+    const note = notes.map(note => {
+      return note.text;
+    });
+    console.log('Noted rendered on click:', note);
+    return note;
+  }
+
   renderNote = () => {
     const note = notes.map( (note) => {
       return (
           note.text
       );
     });
-    return <Note text={note[1]} />
+    console.log(this.state);
+    if (this.state.clicked == false) {
+      return <Note text={note[1]} />
+    } else {
+      return <Note text={note[0]} />
+    }
   }
 
   renderList = () => {
+    
     const noteItem = notes.map( (note) => {
       return (
-        <List note={note} clicked={this.state.clicked} />
+        <List note={note} handleClick={this.handleClick} />
       );
     });
     return noteItem;
