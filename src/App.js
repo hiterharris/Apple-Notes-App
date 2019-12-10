@@ -10,38 +10,27 @@ export default class App extends Component {
     super(props);
     this.state = {
       clicked: false,
-    }
+      note: 1,
   }
+}
+
 
   handleClick = () => {
     // UPDATING STATE ONCLICK
     this.setState({
       clicked: !this.clicked,
+      note: '',
     });
-    // RETURNING CLICKED TEXT
-    const note = notes.map(note => {
-      return note.text;
-    });
-    console.log('Noted rendered on click:', note);
-    return note;
   }
 
+  // Update this.state.note to index clicked
   renderNote = () => {
-    const note = notes.map( (note) => {
-      return (
-          note.text
-      );
-    });
-    console.log(this.state);
-    if (this.state.clicked == false) {
-      return <Note text={note[1]} />
-    } else {
-      return <Note text={note[0]} />
+    for(let i = 0; i <= notes.length; i++) {
+      return <Note text={notes[this.state.note].text} />
     }
   }
 
   renderList = () => {
-    
     const noteItem = notes.map( (note) => {
       return (
         <List note={note} handleClick={this.handleClick} />
