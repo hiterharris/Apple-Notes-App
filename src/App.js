@@ -9,9 +9,32 @@ export default class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      items: [],
       clicked: false,
       note: 1,
   }
+  this.addItem = this.addItem.bind(this);
+
+}
+
+addItem = (e) => {
+  if (this._inputElement.value !== "") {
+    var newItem = {
+      text: this._inputElement.value,
+      key: Date.now()
+    };
+  }
+
+  this.setState(prevState => {
+    return {
+      items: prevState.items.concat(newItem)
+    };
+  });
+
+  this._inputElement.value = "";
+
+  e.preventDefault();
+  
 }
 
 
@@ -30,20 +53,31 @@ export default class App extends Component {
     }
   }
 
+
   renderList = () => {
-    const noteItem = notes.map( (note) => {
+    const noteItem = notes.map( (note, index) => {
       return (
-        <List note={note} handleClick={this.handleClick} />
+        <List key={index} note={note} notes={notes} handleClick={this.handleClick} newNote={this.state.items}  />
       );
     });
     return noteItem;
+    // return (
+    //   <List note={notes} handleClick={this.handleClick} newNote={this.state.items}  />
+    // );
   }
-  
 
   render() {
+
     return (
       <div className="app">
         <Nav />
+        <form onSubmit={this.addItem}>
+            <input
+              ref={a => (this._inputElement = a)}
+              placeholder="enter task"
+            />
+            <button type="submit">add</button>
+          </form>
         <div className="app-container">
 
           <div className="list" >

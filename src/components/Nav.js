@@ -3,7 +3,37 @@ import '../App.scss';
 import traffic from '../assets/img/icons/traffic.png'
 
 export default class Nav extends Component {
+  constructor(props) {
+    super(props);
+    // this.state = {
+    //   items: []
+    // };
+    // this.addItem = this.addItem.bind(this);
+  }
+
+  // addItem(e) {
+  //   if (this._inputElement.value !== "") {
+  //     var newItem = {
+  //       text: this._inputElement.value,
+  //       key: Date.now()
+  //     };
+  //   }
+
+  //   this.setState(prevState => {
+  //     return {
+  //       items: prevState.items.concat(newItem)
+  //     };
+  //   });
+
+  //   this._inputElement.value = "";
+
+  //   console.log(this.state.items);
+
+  //   e.preventDefault();
+  // }
+
   render() {
+    // console.log(this.props.addItem);
     return (
       <div className="nav">
         <div className="window-icons">
@@ -18,7 +48,19 @@ export default class Nav extends Component {
           <img src={require('../assets/img/icons/lock.png')} alt="Lock Icon" />
         </div>
         <div className="search-bar">
-          <input placeholder="Search" ></input>
+          {/* <form onSubmit={() => this.props.addItem}>
+            <input
+              ref={a => (this.props.addItem._inputElement = a)}
+              placeholder="Search"
+            />
+            <button type="submit">add</button>
+          </form> */}
+          <form>
+            <input
+              placeholder="Search"
+            />
+            <button type="submit">add</button>
+          </form>
         </div>
       </div>
     );
